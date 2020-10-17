@@ -3,26 +3,37 @@ $(document).ready(function () {
     var time = (moment().format("dddd MMM Do YY"));
     console.log(moment().format("dddd MMM Do YY"));
     $("#currentDay").text(time);
-    var currentH = (moment().format("H"));
-
-
-    // var timeArea = {
-    //     hour: $(".hour"),
-    //     textArea: $("textarea"),
-    //     save: $(".saveBtn"),
-
-    // };
+    var currentH = parseInt(moment().format("H"));
 
 
 
     // function logEvent() {
     $(".saveBtn").on("click", function () {
         var store = $(this).siblings(".description").val();
-        var value = $(this).siblings(".description").data("value");
+        var value = $(this).siblings(".description").attr("data-value");
 
-        localStorage.setItem("notes", JSON.stringify({[value]:store}));
+        var listOfItems = {
+            value: value,
+            store: store
+        };
 
-        console.log(value,store);
+
+        var grandList= localStorage.getItem("notes");
+
+        if (!grandList) {
+            grandList = []
+        }else{ 
+            grandList = JSON.parse(grandList);
+        }
+
+    
+        grandList.push(listOfItems);
+    
+        localStorage.setItem("notes", JSON.stringify(grandList));
+
+        console.log(grandList);
+
+        
 
 
     })
@@ -45,14 +56,14 @@ $(document).ready(function () {
 
     $(".time").each(function () {
 
-        var time = $(this).attr("data-time");
+        var time = parseInt($(this).attr("data-time"));
 
         // console.log("time", typeof time);
         // console.log(typeof currentH);
 
-        if (Number(time) < Number(currentH)) {
+        if (time < currentH) {
             $("#" + time).addClass("past");
-        } else if (Number(time) === Number(currentH)) {
+        } else if (time === currentH) {
             $("#" + time).addClass("present");
         } else {
             $("#" + time).addClass("future");
