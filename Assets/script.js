@@ -18,39 +18,54 @@ $(document).ready(function () {
         };
 
 
-        var grandList= localStorage.getItem("notes");
+        var grandList = localStorage.getItem("notes");
 
         if (!grandList) {
             grandList = []
-        }else{ 
+        } else {
             grandList = JSON.parse(grandList);
         }
 
-    
+
         grandList.push(listOfItems);
-    
+
         localStorage.setItem("notes", JSON.stringify(grandList));
 
-        console.log(grandList);
-
-        
+        console.log(listOfItems);
 
 
     })
-    // logEvent();
+var newParse = (localStorage.getItem("notes"));
+newParse = JSON.parse(newParse);
 
-    // var allId = $("textarea");
 
 
-    // $("#").each(function () {
-    //     // var storeParent = $("<id>").attr();
-    //     if ($(this).val() < currentH) {
-    //         $(this).attr("class", "future");
-    //     // } else {
-    //     //     $(this).attr("class", "present");
-    //     //     console.log(currentH);
-    //     }
-    // });
+    $(".description").each(function () {
+        for (var i = 0; i < newParse.length; i++){
+
+     if ($(this).attr("data-value") == newParse[i].value)
+
+     $(this).text(newParse[i].store);
+        }
+     
+        // var value = parseInt($(this).attr("data-value"));
+        // if(value === notes:value){
+
+        //     .de
+        // }
+
+        // console.log(value);
+        // $(this).text(localStorage.getItem("notes"));
+
+    })
+
+
+
+
+
+
+    // $("textarea").val(localStorage.getItem("15"));
+
 
 
 
@@ -70,11 +85,6 @@ $(document).ready(function () {
         }
 
     })
-
-
-
-
-    //target id as attr
 
 
 });
