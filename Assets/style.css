@@ -79,3 +79,15 @@ textarea{
   transition: all .3s ease-in-out;
 }
 
+@media (max-width: 575px)
+ {
+   .description, .row {width: 100%;
+    flex-wrap: nowrap;
+    
+   }
+   .future,.past,.present {
+     width: 100%;
+   }
+  
+   
+ }
