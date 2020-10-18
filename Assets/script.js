@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     var time = (moment().format("dddd MMM Do YY"));
-    var hourOfDay = (moment().format("H mm"));
+    var hourOfDay = (moment().format("HH mm"));
     $("#currentDay").text(time);
     $(".time-block").text("The current time is: " + hourOfDay);
     var currentH = parseInt(moment().format("H"));
