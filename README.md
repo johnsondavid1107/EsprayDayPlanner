@@ -18,6 +18,8 @@ This project has a built in time display to get the current accurate time and co
 
 Open up the link and select a timeblock to enter your details.  Click on the save button on the right of the timeblock to save your information.  Once you reload the page your information for the day will load automatically! 
 
+A the link to the applcation is available here: 
+https://johnsondavid1107.github.io/EsprayDayPlanner/
 
 **Where users can get help with your project?**
 
